@@ -1,6 +1,6 @@
 import { Router } from "express";
 const router = Router();
-
+import Auth from "../middleware/auth.js"
 /** import all controllers */
 import * as controller from '../controllers/appController.js'
 
@@ -19,7 +19,7 @@ router.route('/createResetSession').get(controller.createResetSession) // reset 
 
 
 /** PUT Methods */
-router.route('/updateuser').put(controller.updateUser); // is use to update the user profile
+router.route('/updateuser').put(Auth,controller.updateUser); // is use to update the user profile
 router.route('/resetPassword').put(controller.resetPassword); // use to reset password
 
 
