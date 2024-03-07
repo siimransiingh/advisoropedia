@@ -53,6 +53,12 @@ function usernameVerify(error = {}, values) {
     return error;
 }
 
+//  Validate profile page
+export async function profileValidation(values){
+    const errors = emailVerify({},values)
+    return errors;
+}
+
 // validate email
 function emailVerify(error={}, values){
     if(!values.email){
