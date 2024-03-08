@@ -165,7 +165,7 @@ export async function getUser(req,res){
 
 }
 
-/** PUT: http://localhost:8080/api/updateuser 
+/** PUT: http://localhost:8080/updateuser 
  * @param: {
   "header" : "<token>"
 }
