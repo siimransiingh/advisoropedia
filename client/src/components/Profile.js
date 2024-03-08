@@ -71,7 +71,7 @@ const onUpload = async e => {
             </div>
 
             <div className="text-center py-4">
-              <span className='text-gray-500'>Come back later <button className='text-red-500' to="/login"> Logout</button></span>
+              <span className='text-gray-500'>Come back later <button className='text-red-500' to="/"> Logout</button></span>
             </div>
 
           </form>
