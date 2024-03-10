@@ -6,8 +6,6 @@ import { useFormik } from 'formik';
 import { registerValidation } from '../helper/validate';
 import convertToBase64 from '../helper/convert';
 import { registerUser } from '../helper/helper'
-
-
 import styles from '../styles/Username.module.css';
 
 export default function Register() {
@@ -16,26 +14,32 @@ export default function Register() {
   const [file, setFile] = useState()
 
   const formik = useFormik({
-    initialValues : {
+    initialValues: {
       email: 'doyol56239@cnogs.com',
       username: 'example123',
-      password : 'admin@123'
+      password: 'admin@123'
     },
-    validate : registerValidation,
+    validate: registerValidation,
     validateOnBlur: false,
     validateOnChange: false,
-    onSubmit : async values => {
-      values = await Object.assign(values, { profile : file || ''})
-      let registerPromise = registerUser(values)
-      toast.promise(registerPromise, {
-        loading: 'Creating...',
-        success : <b>Register Successfully...!</b>,
-        error : <b>Could not Register.</b>
-      });
-
-      registerPromise.then(function(){ navigate('/')});
+    onSubmit: async values => {
+      try {
+        values = Object.assign(values, { profile: file || '' });
+        let registerPromise = registerUser(values);
+        toast.promise(registerPromise, {
+          loading: 'Creating...',
+          success: <b>Register Successfully...!</b>,
+          error: <b>Could not Register.</b>
+        });
+        registerPromise.then(function () { navigate('/') });
+      } catch (error) {
+        console.error("Error occurred during registration:", error);
+        toast.error("An error occurred during registration. Please try again later.");
+      }
     }
-  })
+    
+  });
+  
 
   /** formik doensn't support file upload so we need to create this handler */
   const onUpload = async e => {
