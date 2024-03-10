@@ -9,7 +9,6 @@ import { updateUser } from '../helper/helper'
 import { useNavigate } from 'react-router-dom'
 import styles from '../styles/Username.module.css';
 import extend from '../styles/Profile.module.css'
-import { useAuthStore } from '../store/store';
 
 export default function Profile() {
 
