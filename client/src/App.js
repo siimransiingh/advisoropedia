@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/recovery',
-        element: <Recovery></Recovery>
+        element: <Recovery/>
     },
     {
         path: '/reset',
